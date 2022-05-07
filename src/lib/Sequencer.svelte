@@ -1,8 +1,9 @@
 <script lang="ts">
+import { onMount } from 'svelte';
+
   import { derived, get } from 'svelte/store';
 
 	import Section from './Section.svelte';
-  import { lights } from './stage';
   import SequenceStep from './Step.svelte';
   import { sequence, parameters, pattern, Step } from './stores'
   
@@ -17,9 +18,15 @@
     sequence.update(seq => [...seq, step])
   }
 
-  $: {
-    lights.fill($parameters.primary)
+  function tick() {
+    // console.log('tick', $pattern, $parameters)
+    $pattern.tick($parameters)
   }
+
+  onMount(() => {
+    const timer = setInterval(tick, 400)
+    return () => clearInterval(timer)
+  })
 
 </script>
 

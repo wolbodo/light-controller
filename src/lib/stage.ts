@@ -89,6 +89,10 @@ class Lights {
     console.log("FIll", color)
     this.allRGB.map(par => par.color = color) 
   }
+
+  randomOne() {
+    this.allRGB[this.allRGB.length * Math.random() |0].color = convert.hsv.rgb([Math.random()*255|0, 100, 50])
+  }
 }
 
 
