@@ -17,7 +17,10 @@ export type Step = {
 }
 
 export const pattern = writable<Pattern>(solid)
-export const parameters = writable<Parameters>({})
+export const parameters = writable<Parameters>({
+  primary: randomColor(),
+  secondary: randomColor()
+})
 export const sequence = writable<Step[]>(
   Array(5)
     .fill(0)

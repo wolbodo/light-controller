@@ -1,0 +1,9 @@
+body {
+  --background: black;
+  --light: white;
+  --primary: #ff3e00;
+
+  background: var(--background);
+
+  color: var(--light);
+}

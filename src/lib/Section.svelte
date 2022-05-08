@@ -11,6 +11,7 @@
 
 <style>
   section {
+		flex: 1;
     border: thin solid #fdae94;
 		padding: .5em;
 	}

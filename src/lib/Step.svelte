@@ -4,9 +4,11 @@
 
   export let pattern: Pattern = null
   export let parameters: Parameters = null
+
+  export let current = false
 </script>
 
-<article on:click>
+<article on:click class:current>
   {pattern.name}
 
   <section class='parameters'>
@@ -26,6 +28,10 @@
 
     margin: .5rem;
     padding: .5rem;
+  }
+
+  .current {
+    border-color: red;
   }
 
   .parameters {
