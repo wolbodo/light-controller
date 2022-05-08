@@ -54,14 +54,21 @@ export const wipe: Pattern = {
         params = parameters;
         run(parameters)
       })
-      
+      let time = 0
       const interval = setInterval(() => {
-        row = (row + 1) % 3
-        if (!row) {
-          state = !state
+        if (time%5 === 0) {
+          row = (row + 1) % 3
+          if (!row) {
+            state = !state
+          }
         }
+        
+        rgbSpots.update(spots => {
+          return spots.map(color => color.darken(0.1))
+        })
+        time ++
         run(params)
-      }, 500)
+      }, 100)
       return () => {
         unsubscribe()
         clearInterval(interval)
