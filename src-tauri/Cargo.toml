@@ -1,11 +1,11 @@
 [package]
-name = "Lights"
+name = "lights"
 version = "0.2.1"
-description = "A Tauri App"
+description = "Controlling wolbodo lights"
 authors = ["you"]
 license = ""
 repository = ""
-default-run = "app"
+default-run = "lights"
 edition = "2021"
 rust-version = "1.57"
 
