@@ -63,17 +63,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "08f9b8508dccb7687a1d6c4ce66b2b0ecef467c94667de27d8d7fe1f8d2a9cdc"
 
 [[package]]
-name = "app"
-version = "0.2.1"
-dependencies = [
- "sacn-unofficial",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
-]
-
-[[package]]
 name = "async-broadcast"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1583,6 +1572,17 @@ name = "libc"
 version = "0.2.125"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5916d2ae698f6de9bfb891ad7a8d65c09d232dc58cc4ac433c7da3b2fd84bc2b"
+
+[[package]]
+name = "lights"
+version = "0.3.0"
+dependencies = [
+ "sacn-unofficial",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+]
 
 [[package]]
 name = "lock_api"
