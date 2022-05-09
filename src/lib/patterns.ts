@@ -40,7 +40,6 @@ export const wipe: Pattern = {
     let row = 0
     let state = true
     const run = ({ primary, secondary }: Parameters) => {
-      console.log("Tick", row)
       const width = 4
       const color = state ? secondary : primary
       rgbSpots.update(spots => {
@@ -64,7 +63,7 @@ export const wipe: Pattern = {
         }
         
         rgbSpots.update(spots => {
-          return spots.map(color => color.darken(0.1))
+          return spots.map(color => color.darken(0.4))
         })
         time ++
         run(params)

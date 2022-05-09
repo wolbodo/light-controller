@@ -13,29 +13,54 @@
 
   export const fill = (color) => {
     rgbSpots.update(spots => spots.map(() => color))
-    console.log('filled', color)
   }
 </script>
 
 <script lang='ts'>
   let count = 0
 
-  const sendSacn = async (data) => {
+  function debounce(func, timeout = 100) {
+    let timer;
+    let lastargs;
+
+    const rundelayed = () => {
+      timer = undefined;
+
+      if (lastargs) {
+        func.apply(this, lastargs)
+        timer = setTimeout(rundelayed, timeout)
+        lastargs = undefined
+      }
+      console.log('clearing')
+    }
+    return (...args) => {
+
+      console.log("OK")
+      if (!timer) {
+        console.log("APPLY")
+        func.apply(this, args);
+        timer = setTimeout(rundelayed, timeout);
+      } else {
+        // Called with timer running
+        lastargs = args
+      }
+    };
+  }
+
+  const sendSacn = debounce((data) => {
     console.log("Sending", data)
-		const response = await invoke('send_sacn', {
+		invoke('send_sacn', {
 			data: data.map(v => v|0)
 		})
-    count ++
-  }
+      .then(() => count++)
+      .catch(e => console.error('error', e))
+  })
   $: {
     // Should be calling send on max hz
-    console.log("Update", $rgbSpots, $spots)
     sendSacn([
       ...$rgbSpots.flatMap(color => [0, 0, ...color.rgb().array()]),
       ...$spots
     ])
-      .then(() => {})
-      .catch(e => console.error('error', e))
   }
 </script>
 
