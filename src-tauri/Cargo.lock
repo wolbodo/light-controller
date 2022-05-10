@@ -1575,7 +1575,7 @@ checksum = "5916d2ae698f6de9bfb891ad7a8d65c09d232dc58cc4ac433c7da3b2fd84bc2b"
 
 [[package]]
 name = "lights"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "sacn-unofficial",
  "serde",

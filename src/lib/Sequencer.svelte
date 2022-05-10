@@ -21,21 +21,10 @@
     }
     sequence.update(seq => [...seq, step])
   }
-
-  // function tick() {
-  //   // console.log('tick', $pattern, $parameters)
-  //   $pattern.tick($parameters)
-  // }
-
-  // onMount(() => {
-  //   const timer = setInterval(tick, 400)
-  //   return () => clearInterval(timer)
-  // })
-
   $: currentStore = $pattern.store
 
   $: {
-    console.log($pattern, $parameters, $currentStore)
+    console.log($currentStore)
   }
 
 </script>

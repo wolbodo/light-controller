@@ -13,7 +13,9 @@
 </script>
 
 <Section heading="Patterns">
-  <select bind:value={currentName} on:change={() => $pattern = patterns[currentName]}>
+  <select value={currentName} on:change={(e) => {
+    $pattern = patterns[e.target.value]
+  }}>
     {#each patternEntries as [name, pattern]}
       <option value={name}>{pattern.name}</option>
     {/each}

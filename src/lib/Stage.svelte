@@ -3,8 +3,8 @@
   import { invoke } from '@tauri-apps/api/tauri'
   import { writable } from 'svelte/store';
   
-  const RGB_SPOTS = 12
-  const SPOTS = 4
+  export const RGB_SPOTS = 12
+  export const SPOTS = 4
 
   export type Spot = number;
   
@@ -31,13 +31,10 @@
         timer = setTimeout(rundelayed, timeout)
         lastargs = undefined
       }
-      console.log('clearing')
     }
     return (...args) => {
 
-      console.log("OK")
       if (!timer) {
-        console.log("APPLY")
         func.apply(this, args);
         timer = setTimeout(rundelayed, timeout);
       } else {
